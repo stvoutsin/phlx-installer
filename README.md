@@ -1,15 +1,31 @@
-# phlx-installer
-Docker Container for installing the RSP
+# Instructions for using a Docker Container to install the RSP
 
-# Instructions
 
-Clone this repo on the VM / host on which you will be installing from:
+Requirements
+
+Docker, Git
+
+
+
+- Clone this repo on the VM / host on which you will be installing from:
+
 ```
-  git clone https://github.com/stvoutsin/phlx-installer
+git clone https://github.com/stvoutsin/phlx-installer
 ```
 
 
-Create ENVIRONMENT vars for the required deployment params:
+- Build Docker image
+
+```
+sudo docker build phlx-installer/ --tag installer
+```
+
+
+- Add your kubernetes cluster certs under certs/
+
+- Add your kube config under kube/config
+
+- Create ENVIRONMENT vars for the required deployment params:
 
 ```
 export VAULT_TOKEN=YOUR_VAULT_TOKEN
@@ -20,7 +36,7 @@ export CUR_DIRECTORY=pwd
 ```
 
 
-Run Docker install for the RSP:
+- Run Docker install for the RSP:
 
 ```
 sudo docker run \        
