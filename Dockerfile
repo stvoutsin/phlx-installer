@@ -31,6 +31,7 @@ RUN pip3 install yq
 RUN pip3 install bcrypt
 RUN pip3 install pyyaml
 RUN pip3 install cryptography
+RUN pip3 install onepasswordconnectsdk
 
 # Install kubectl
 RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
