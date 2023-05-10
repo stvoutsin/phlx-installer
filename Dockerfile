@@ -11,11 +11,13 @@ RUN apt-get update
 RUN apt-get install -y git
 RUN apt-get install -y curl
 RUN apt-get install -y wget
-RUN apt-get install -y python3
 RUN apt-get install -y jq
-RUN apt install -y python3
-RUN apt-get install -y python3-pip
 RUN apt-get install -y python3-setuptools
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install -y python3.7 python3-pip
+RUN python3.7 -m pip install --upgrade pip
+RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
 
 # Install 1password
 RUN pip3 install --upgrade pip
@@ -25,12 +27,14 @@ RUN mkdir -p /etc/debsig/policies/AC2D62742012EA22/
 RUN curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
 RUN apt-get update 
 RUN apt install -y 1password
+RUN python3.7 -m pip install git+https://github.com/1Password/connect-sdk-python
 
 # Install Python libs: yq, bcrypt, pyaml & cryptography
 RUN pip3 install yq
 RUN pip3 install bcrypt
 RUN pip3 install pyyaml
 RUN pip3 install cryptography
+RUN pip3 install cffi
 
 # Install kubectl
 RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
