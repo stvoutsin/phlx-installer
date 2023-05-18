@@ -1,5 +1,11 @@
 # Open the required Openstack ports
 
+# Check if the first parameter is provided
+if [ -z "$1" ]; then
+  echo "Error: Cluster name not provided."
+  exit 1
+fi
+
 cluster_name="$1"
 
 sec_group_list=$(openstack security group list -f json)
