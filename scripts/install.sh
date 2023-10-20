@@ -9,4 +9,4 @@ git -C /phalanx checkout $BRANCH
 
 # Install RSP
 cd /phalanx/installer/
-./install.sh $ENVIRONMENT $VAULT_TOKEN $VAULT_ADDR $VAULT_TOKEN_LEASE_DURATION
+./install.sh $ENVIRONMENT $VAULT_TOKEN $VAULT_TOKEN_LEASE_DURATION
