@@ -3,8 +3,10 @@
 # Define the cluster name as a parameter
 cluster_name="$1"
 
+# Define the cluster template as a parameter
+cluster_template="$2"
+
 # Define the rest of the parameters
-cluster_template="stv-template-large"
 master_count=1
 node_count=5
 docker_volume_size=200
