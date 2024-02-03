@@ -45,19 +45,19 @@ export CUR_DIRECTORY=/home/ubuntu # Or whichever directory you have cloned to
 ## Run Docker install for the RSP:
 
 ```
-sudo docker run   \
-  -it  \
-  --hostname installer  \
-  --env REPO=${REPO:?}  \
-  --env VAULT_ADDR=${VAULT_ADDR:?}  \
-  --env VAULT_ROLE_ID=${VAULT_ROLE_ID:?}  \
-  --env VAULT_SECRET_ID=${VAULT_SECRET_ID:?}  \
-  --env BRANCH=${BRANCH:?}  \
-  --env ENVIRONMENT=${ENVIRONMENT:?}     \
-  --volume ${CUR_DIRECTORY:?}"/phlx-installer/certs:/etc/kubernetes/certs"  \
-  --volume ${CUR_DIRECTORY:?}"/phlx-installer/kube/config:/root/.kube/config" \
-  --volume ${CUR_DIRECTORY:?}"/phlx-installer/scripts/install.sh:/root/install.sh"  \
-  --volume ${CUR_DIRECTORY:?}"/phlx-installer/scripts/helper.sh:/root/helper.sh" \
-  installer
+	 sudo docker run   \
+	   -it  \
+	   --hostname installer  \
+	   --env REPO=${REPO:?}  \
+	   --env VAULT_ADDR=${VAULT_ADDR:?}  \
+	   --env VAULT_SECRET_ID=${VAULT_SECRET_ID:?}  \
+	   --env VAULT_ROLE_ID=${VAULT_ROLE_ID:?}  \
+	   --env BRANCH=${BRANCH:?}  \
+	   --env ENVIRONMENT=${ENVIRONMENT:?}     \
+	   --volume ${CUR_DIRECTORY:?}"/phlx-installer/certs:/etc/kubernetes/certs"  \
+	   --volume ${CUR_DIRECTORY:?}"/phlx-installer/kube/config:/root/.kube/config" \
+	   --volume ${CUR_DIRECTORY:?}"/phlx-installer/scripts/install.sh:/root/install.sh"  \
+	   --volume ${CUR_DIRECTORY:?}"/phlx-installer/scripts/helper.sh:/root/helper.sh" \
+	   installer
 ```
 
